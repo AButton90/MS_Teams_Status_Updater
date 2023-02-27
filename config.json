@@ -1,0 +1,76 @@
+{
+    "Projects": {
+        "Account_Inheritance": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": ["Quote_Generation"],
+            "Focus_Level": "Medium"
+        },
+        "Part_Matching": {
+            "Category": ["Rules Engine", "AWS"],
+            "Sub_Category": ["Bugs", "Features", "SO", "PC", "Mongo"],
+            "Related": ["HS_Code_Matching", "Zee_Retail_Method"],
+            "Focus_Level": "High"
+        },
+        "HS_Code_Matching": {
+            "Category": ["Rules Engine", "AWS"],
+            "Sub_Category": ["Bugs", "Features", "Mongo"],
+            "Related": ["Part_Matching", "Zee_Retail_Method"],
+            "Focus_Level": "High"
+        },
+        "Zee_Retail_Method": {
+            "Category": ["Rules Engine", "AWS"],
+            "Sub_Category": ["Bugs", "Features", "Mongo"],
+            "Related": ["Part_Matching", "Zee_Retail_Method"],
+            "Focus_Level": "High"
+        },
+        "Tasks": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": ["ETA"],
+            "Focus_Level": "High"
+        },
+        "ETA": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": ["Tasks"],
+            "Focus_Level": "High"
+        },
+        "Quote_Generation": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": ["Account_Inheritance"],
+            "Focus_Level": "Medium"
+        },
+        "AWB_Generation": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features", "Support"],
+            "Related": ["Freight"],
+            "Focus_Level": "Medium"
+        },
+        "Archiving": {
+            "Category": ["AWS"],
+            "Sub_Category": ["Bugs", "Features", "Execution"],
+            "Related": [],
+            "Focus_Level": "High"
+        },
+        "Scheduling": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": ["ETA", "Allocation_Bots"],
+            "Focus_Level": "High"
+        },
+        "Allocation_Bots": {
+            "Category": ["Compliance", "Products", "Tax"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": [],
+            "Focus_Level": "High"
+        },
+        "Org_2_Org": {
+            "Category": ["Salesforce"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": [],
+            "Focus_Level": "Medium"
+        }        
+    }
+}
