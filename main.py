@@ -2,7 +2,7 @@ from flask import Flask, send_from_directory, render_template, Response, url_for
 from flask_restful import Resource, Api, reqparse
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
 api = Api(app)
 
 
