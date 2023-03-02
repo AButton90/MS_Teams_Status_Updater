@@ -20,13 +20,14 @@ input[type='checkbox'] {
 }
 .project_container {
     display: flex;
+    flex-wrap: wrap;
     font-family: sans-serif;
-    background: rgb(14, 33, 50);
+    background: rgb(41, 41, 41);
     border-style: solid;
-    border-color: rgb(10, 24, 38);
+    border-color: rgb(21, 21, 21);
     justify-content: space-evenly;
     align-items: center;
-    height: 600px;
+    height: 1300px;
   }
   .project_head {
     color: rgb(0, 0, 0);
@@ -35,11 +36,13 @@ input[type='checkbox'] {
     font-weight: bold;
   }
   .project {
+    align-items: center;
+    justify-content: center;
     background: rgb(242, 242, 242);
     border-style: ridge;
     border-color: rgb(223, 223, 223);
-    flex-basis: 450px;
-    height: 500px;
+    flex-basis: 400px;
+    height: 350px;
     font-size: medium;
   }
 .info_container {

@@ -1,0 +1,151 @@
+<div class="project">
+    <div class="project_head">
+        <label ><input type="radio" name="project" value="Account Inheritance"> Account Inheritance</label>
+    </div>
+    <br>
+    <div style="margin-left: 25px;">
+        <label style="font-weight: bold;">Category: </label><br>
+        <label><input type="checkbox" name="p1_category" value="Rules Engine"> Rules Engine</label><br>
+        <label><input type="checkbox" name="p1_category" value="AWS"> AWS</label><br>
+        <br>
+        <label style="font-weight: bold;">Sub Category: </label><br>
+        <label><input type="checkbox" name="p1_sub_category" value="Bugs"> Bugs</label><br>
+        <label><input type="checkbox" name="p1_suc_category" value="Features"> Features</label><br>
+        <br>
+        <label style="font-weight: bold;">Related: </label><br>
+        <label><input type="checkbox" name="p1_related" value="Quote_Generation"> Quote Generation</label><br>
+        <br>
+    </div>
+</div>
+
+<script>
+    const projects = {};
+    
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', "{{ url_for('static',filename='config.json') }}");
+    xhr.onload = () => {
+    if (xhr.status === 200) {
+        myData = JSON.parse(xhr.responseText);
+    }
+    };
+    xhr.send();
+</script>
+
+<script>
+    const projects = {
+    "Projects": {
+        "Account Inheritance": {
+        "Category": ["Rules Engine"],
+        "Sub_Category": ["Bugs", "Features"],
+        "Related": ["Quote Generation"],
+        "Focus_Level": "Medium"
+        },
+        "Part Matching": {
+        "Category": ["Rules Engine", "AWS"],
+        "Sub_Category": ["Bugs", "Features", "SO", "PC", "Mongo"],
+        "Related": ["HS Code Matching", "Zee Retail Method"],
+        "Focus_Level": "High"
+        }
+    },
+    "HTML": {}
+    };
+
+    const projectContainer = document.querySelector('.project_container');
+
+    // Loop through each project in the JSON file
+    Object.keys(projects.Projects).forEach((key, index) => {
+    const project = projects.Projects[key];
+
+    // Create the project div element
+    const projectDiv = document.createElement('div');
+    projectDiv.classList.add('project');
+
+    // Create the project head div element
+    const projectHeadDiv = document.createElement('div');
+    projectHeadDiv.classList.add('project_head');
+
+    // Create the project name label and radio button element
+    const projectNameLabel = document.createElement('label');
+    const projectNameRadio = document.createElement('input');
+    projectNameRadio.type = 'radio';
+    projectNameRadio.name = 'project';
+    projectNameRadio.value = key;
+    projectNameLabel.appendChild(projectNameRadio);
+    projectNameLabel.appendChild(document.createTextNode(` ${key}`));
+    projectHeadDiv.appendChild(projectNameLabel);
+    projectDiv.appendChild(projectHeadDiv);
+    projectDiv.appendChild(document.createElement('br'));
+
+    // Create the category section
+    const categoryDiv = document.createElement('div');
+    categoryDiv.style.marginLeft = '25px';
+    const categoryLabel = document.createElement('label');
+    categoryLabel.style.fontWeight = 'bold';
+    categoryLabel.appendChild(document.createTextNode('Category: '));
+    categoryDiv.appendChild(categoryLabel);
+    categoryDiv.appendChild(document.createElement('br'));
+    project.Category.forEach((category) => {
+        const categoryCheckboxLabel = document.createElement('label');
+        const categoryCheckbox = document.createElement('input');
+        categoryCheckbox.type = 'checkbox';
+        categoryCheckbox.name = `p${index+1}_category`;
+        categoryCheckbox.value = category;
+        categoryCheckboxLabel.appendChild(categoryCheckbox);
+        categoryCheckboxLabel.appendChild(document.createTextNode(` ${category}`));
+        categoryDiv.appendChild(categoryCheckboxLabel);
+        categoryDiv.appendChild(document.createElement('br'));
+    });
+    categoryDiv.appendChild(document.createElement('br'));
+    projectDiv.appendChild(categoryDiv);
+
+    // Create the sub category section
+    const subCategoryDiv = document.createElement('div');
+    subCategoryDiv.style.marginLeft = '25px';
+    const subCategoryLabel = document.createElement('label');
+    subCategoryLabel.style.fontWeight = 'bold';
+    subCategoryLabel.appendChild(document.createTextNode('Sub Category: '));
+    subCategoryDiv.appendChild(subCategoryLabel);
+    subCategoryDiv.appendChild(document.createElement('br'));
+    project.Sub_Category.forEach((subCategory) => {
+        const subCategoryCheckboxLabel = document.createElement('label');
+        const subCategoryCheckbox = document.createElement('input');
+        subCategoryCheckbox.type = 'checkbox';
+        subCategoryCheckbox.name = `p${index+1}_sub_category`;
+        subCategoryCheckbox.value = subCategory;
+        subCategoryCheckboxLabel.appendChild(subCategoryCheckbox);
+        subCategoryCheckboxLabel.appendChild(document.createTextNode(` ${subCategory}`));
+        subCategoryDiv.appendChild(subCategoryCheckboxLabel);
+        subCategoryDiv.appendChild(document.createElement('br'));
+    });
+    subCategoryDiv.appendChild(document.createElement('br'));
+    projectDiv.appendChild(subCategoryDiv);
+
+      // Create the related section
+    const relatedDiv = document.createElement('div');
+    relatedDiv.style.marginLeft = '25px';
+    const relatedLabel = document.createElement('label');
+    relatedLabel.style.fontWeight = 'bold';
+    relatedLabel.appendChild(document.createTextNode('Related: '));
+    relatedDiv.appendChild(relatedLabel);
+    relatedDiv.appendChild(document.createElement('br'));
+    project.Related.forEach((related) => {
+        const relatedCheckboxLabel = document.createElement('label');
+        const relatedCheckbox = document.createElement('input');
+        relatedCheckbox.type = 'checkbox';
+        relatedCheckbox.name = `p${index+1}_related`;
+        relatedCheckbox.value = related;
+        relatedCheckboxLabel.appendChild(relatedCheckbox);
+        relatedCheckboxLabel.appendChild(document.createTextNode(` ${related}`));
+        relatedDiv.appendChild(relatedCheckboxLabel);
+        relatedDiv.appendChild(document.createElement('br'));
+    });
+    relatedDiv.appendChild(document.createElement('br'));
+    projectDiv.appendChild(relatedDiv);
+
+    // Append the project div element to the project container
+    projectContainer.appendChild(projectDiv);
+    });
+
+
+
+</script>

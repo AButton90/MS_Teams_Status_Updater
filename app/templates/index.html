@@ -9,8 +9,197 @@
         <label>STATUS UPDATER</label>
         <img src="{{ url_for('static',filename='images/other.png') }}" alt="Logo" style="width:100px;height:100;">
     </div>
+
     <form action="/" method="post">
+        <div class="project_container">
+            
+        </div>
+
+
+
         <button type="submit" href="/" method="post">SUBMIT</button>
     </form>
+
+    <script>
+        const projects = {
+    "Projects": {
+        "Account_Inheritance": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": ["Quote_Generation"],
+            "Focus_Level": "Medium"
+        },
+        "Part_Matching": {
+            "Category": ["Rules Engine", "AWS"],
+            "Sub_Category": ["Bugs", "Features", "SO", "PC", "Mongo"],
+            "Related": ["HS_Code_Matching", "Zee_Retail_Method"],
+            "Focus_Level": "High"
+        },
+        "HS_Code_Matching": {
+            "Category": ["Rules Engine", "AWS"],
+            "Sub_Category": ["Bugs", "Features", "Mongo"],
+            "Related": ["Part_Matching", "Zee_Retail_Method"],
+            "Focus_Level": "High"
+        },
+        "Zee_Retail_Method": {
+            "Category": ["Rules Engine", "AWS"],
+            "Sub_Category": ["Bugs", "Features", "Mongo"],
+            "Related": ["Part_Matching", "Zee_Retail_Method"],
+            "Focus_Level": "High"
+        },
+        "Tasks": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": ["ETA"],
+            "Focus_Level": "High"
+        },
+        "ETA": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": ["Tasks"],
+            "Focus_Level": "High"
+        },
+        "Quote_Generation": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": ["Account_Inheritance"],
+            "Focus_Level": "Medium"
+        },
+        "AWB_Generation": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features", "Support"],
+            "Related": ["Freight"],
+            "Focus_Level": "Medium"
+        },
+        "Archiving": {
+            "Category": ["AWS"],
+            "Sub_Category": ["Bugs", "Features", "Execution"],
+            "Related": [],
+            "Focus_Level": "High"
+        },
+        "Scheduling": {
+            "Category": ["Rules Engine"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": ["ETA", "Allocation_Bots"],
+            "Focus_Level": "High"
+        },
+        "Allocation_Bots": {
+            "Category": ["Compliance", "Products", "Tax"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": [],
+            "Focus_Level": "High"
+        },
+        "Org_2_Org": {
+            "Category": ["Salesforce"],
+            "Sub_Category": ["Bugs", "Features"],
+            "Related": [],
+            "Focus_Level": "Medium"
+        }        
+    },
+    "HTML": {}
+};
+    
+        const projectContainer = document.querySelector('.project_container');
+    
+        // Loop through each project in the JSON file
+        Object.keys(projects.Projects).forEach((key, index) => {
+        const project = projects.Projects[key];
+    
+        // Create the project div element
+        const projectDiv = document.createElement('div');
+        projectDiv.classList.add('project');
+    
+        // Create the project head div element
+        const projectHeadDiv = document.createElement('div');
+        projectHeadDiv.classList.add('project_head');
+    
+        // Create the project name label and radio button element
+        const projectNameLabel = document.createElement('label');
+        const projectNameRadio = document.createElement('input');
+        projectNameRadio.type = 'radio';
+        projectNameRadio.name = 'project';
+        projectNameRadio.value = key;
+        projectNameLabel.appendChild(projectNameRadio);
+        projectNameLabel.appendChild(document.createTextNode(` ${key}`));
+        projectHeadDiv.appendChild(projectNameLabel);
+        projectDiv.appendChild(projectHeadDiv);
+        projectDiv.appendChild(document.createElement('br'));
+    
+        // Create the category section
+        const categoryDiv = document.createElement('div');
+        categoryDiv.style.marginLeft = '25px';
+        const categoryLabel = document.createElement('label');
+        categoryLabel.style.fontWeight = 'bold';
+        categoryLabel.appendChild(document.createTextNode('Category: '));
+        categoryDiv.appendChild(categoryLabel);
+        categoryDiv.appendChild(document.createElement('br'));
+        project.Category.forEach((category) => {
+            const categoryCheckboxLabel = document.createElement('label');
+            const categoryCheckbox = document.createElement('input');
+            categoryCheckbox.type = 'checkbox';
+            categoryCheckbox.name = `p${index+1}_category`;
+            categoryCheckbox.value = category;
+            categoryCheckboxLabel.appendChild(categoryCheckbox);
+            categoryCheckboxLabel.appendChild(document.createTextNode(` ${category}`));
+            categoryDiv.appendChild(categoryCheckboxLabel);
+            categoryDiv.appendChild(document.createElement('br'));
+        });
+        categoryDiv.appendChild(document.createElement('br'));
+        projectDiv.appendChild(categoryDiv);
+    
+        // Create the sub category section
+        const subCategoryDiv = document.createElement('div');
+        subCategoryDiv.style.marginLeft = '25px';
+        const subCategoryLabel = document.createElement('label');
+        subCategoryLabel.style.fontWeight = 'bold';
+        subCategoryLabel.appendChild(document.createTextNode('Sub Category: '));
+        subCategoryDiv.appendChild(subCategoryLabel);
+        subCategoryDiv.appendChild(document.createElement('br'));
+        project.Sub_Category.forEach((subCategory) => {
+            const subCategoryCheckboxLabel = document.createElement('label');
+            const subCategoryCheckbox = document.createElement('input');
+            subCategoryCheckbox.type = 'checkbox';
+            subCategoryCheckbox.name = `p${index+1}_sub_category`;
+            subCategoryCheckbox.value = subCategory;
+            subCategoryCheckboxLabel.appendChild(subCategoryCheckbox);
+            subCategoryCheckboxLabel.appendChild(document.createTextNode(` ${subCategory}`));
+            subCategoryDiv.appendChild(subCategoryCheckboxLabel);
+            subCategoryDiv.appendChild(document.createElement('br'));
+        });
+        subCategoryDiv.appendChild(document.createElement('br'));
+        projectDiv.appendChild(subCategoryDiv);
+    
+          // Create the related section
+        const relatedDiv = document.createElement('div');
+        relatedDiv.style.marginLeft = '25px';
+        const relatedLabel = document.createElement('label');
+        relatedLabel.style.fontWeight = 'bold';
+        relatedLabel.appendChild(document.createTextNode('Related: '));
+        relatedDiv.appendChild(relatedLabel);
+        relatedDiv.appendChild(document.createElement('br'));
+        project.Related.forEach((related) => {
+            const relatedCheckboxLabel = document.createElement('label');
+            const relatedCheckbox = document.createElement('input');
+            relatedCheckbox.type = 'checkbox';
+            relatedCheckbox.name = `p${index+1}_related`;
+            relatedCheckbox.value = related;
+            relatedCheckboxLabel.appendChild(relatedCheckbox);
+            relatedCheckboxLabel.appendChild(document.createTextNode(` ${related}`));
+            relatedDiv.appendChild(relatedCheckboxLabel);
+            relatedDiv.appendChild(document.createElement('br'));
+        });
+        relatedDiv.appendChild(document.createElement('br'));
+        projectDiv.appendChild(relatedDiv);
+    
+        // Append the project div element to the project container
+        projectContainer.appendChild(projectDiv);
+        });
+    
+    
+    
+    </script>
+
+    
+
 </body>
 </html>
