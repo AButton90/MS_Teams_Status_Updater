@@ -27,7 +27,7 @@ input[type='checkbox'] {
     border-color: rgb(21, 21, 21);
     justify-content: space-evenly;
     align-items: center;
-    height: 1300px;
+    height: fit-content;
   }
   .project_head {
     color: rgb(0, 0, 0);
