@@ -12,7 +12,7 @@ input[type='checkbox'] {
     background: rgb(31, 31, 31);
     color: white;
     text-align: center;
-    font-family: 'Arial';
+    font-family: 'Segoe UI';
     justify-content: space-around;
     align-items: center;
     font-size: xx-large;
@@ -21,29 +21,30 @@ input[type='checkbox'] {
 .project_container {
     display: flex;
     flex-wrap: wrap;
-    font-family: sans-serif;
+    font-family: 'Segoe UI';
     background: rgb(41, 41, 41);
     border-style: solid;
-    border-color: rgb(21, 21, 21);
+    border-color: rgb(41, 41, 41);
     justify-content: space-evenly;
     align-items: center;
     height: fit-content;
   }
   .project_head {
-    color: rgb(0, 0, 0);
-    font-size: large;
+    color: rgb(41, 41, 41);
+    font-size: x-large;
     align-self: center;
     font-weight: bold;
   }
   .project {
     align-items: center;
     justify-content: center;
-    background: rgb(242, 242, 242);
-    border-style: ridge;
-    border-color: rgb(223, 223, 223);
-    flex-basis: 400px;
-    height: 350px;
-    font-size: medium;
+    background: rgb(166, 167, 220);
+    border-style: solid;
+    border-color: rgb(41, 41, 41);
+    border-width: 20px;
+    flex-basis: 300px;
+    height: 300px;
+    font-size: large;
   }
 .info_container {
     display: flex;
@@ -66,14 +67,17 @@ input[type='checkbox'] {
     color: white;
     font-size: medium;
   }
-button {
+.tab {
+    display: flex;
+}
+  button {
     width: 100%;
     font-family: 'Candara Light';
     padding: 10px 0;
     margin: 10px auto;
-    border-radius: 5px; 
+    border-radius: 10px; 
     border: none;
-    background: rgb(127, 133, 245); 
+    background: rgb(139, 140, 199); 
     font-size: larger;
     font-weight: bold;
     color: #ffffff;

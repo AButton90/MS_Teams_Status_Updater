@@ -33,10 +33,7 @@ api.add_resource(MSTeamsUpdater, '/')
 api.add_resource(UpdateStatus, '/update')
 
 if __name__ == '__main__':
-    
-    subprocess.Popen(["C:\Program Files\Google\Chrome\Application\chrome.exe", '--remote-debugging-port=9222', '--user-data-dir=C:\\selenum\\ChromeProfile'])
 
-    updater = UpdateTeams()
-    updater.local_host()
-    
+    # subprocess.Popen(["C:\Program Files\Google\Chrome\Application\chrome.exe", '--remote-debugging-port=9222', '--user-data-dir=C:\\selenum\\ChromeProfile'])
+
     app.run(host="localhost", port=8003, debug=True)
